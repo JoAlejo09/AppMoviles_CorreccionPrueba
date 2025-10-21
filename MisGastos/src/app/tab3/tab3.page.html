@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Resumen Mensual</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>Selecciona Mes y Año</ion-label>
+    <ion-datetime
+      presentation="month"
+      [(ngModel)]="fecha"
+      (ionChange)="fechaCambios($event)"
+      placeholder="Elige mes y año"
+      displayFormat="MM/YYYY"
+      pickerFormat="MM YYYY"
+    ></ion-datetime>
+  </ion-item>
+
+  <ion-card>
+    <ion-card-header>Total del Mes</ion-card-header>
+    <ion-card-content>{{ totalMes | currency }}</ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let cat of gastos">
+      <ion-label>
+        <h2>{{ cat[0] }}</h2>
+        <p>{{ cat[1] | currency }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrar Gasto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-input placeholder="Monto" type="number" [(ngModel)]="monto"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input placeholder="Categoría" [(ngModel)]="categoria"></ion-input>
+  </ion-item>
+  <ion-item>
+  <ion-datetime presentation="date" placeholder="Selecciona la fecha"[(ngModel)]="fecha"
+  ></ion-datetime>
+</ion-item>
+
+
+  <ion-button expand="block" (click)="guardarGasto()">Guardar</ion-button>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "MisGastos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

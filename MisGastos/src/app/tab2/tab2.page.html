@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gastos del Día</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>Selecciona fecha</ion-label>
+    <ion-datetime
+      displayFormat="DD/MM/YYYY"
+      [(ngModel)]="fecha"
+      (ionChange)="onFechaChange($event)"
+      placeholder="Elige una fecha"
+    ></ion-datetime>
+  </ion-item>
+
+  <ion-list *ngIf="gastosDiarios.length > 0; else noGastos">
+    <ion-item *ngFor="let g of gastosDiarios">
+      <ion-label>
+        <h2>{{ g.categoria }} - {{ g.monto | currency }}</h2>
+        <p>{{ g.fecha | date:'shortTime' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noGastos>
+    <p class="ion-padding">No hay gastos para esta fecha.</p>
+  </ng-template>
+</ion-content>
